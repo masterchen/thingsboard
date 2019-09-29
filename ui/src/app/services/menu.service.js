@@ -190,6 +190,12 @@ function Menu(userService, $state, $rootScope) {
                             type: 'link',
                             state: 'home.auditLogs',
                             icon: 'track_changes'
+                        },
+                        {
+                            name: 'audit-log.audit-logs',
+                            type: 'link',
+                            state: 'home.auditLogs',
+                            icon: 'track_changes'
                         }];
 
                     homeSections =
