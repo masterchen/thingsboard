@@ -1,5 +1,5 @@
 /**
- * Copyright © 2016-2019 The Thingsboard Authors
+ * Copyright © 2016-2020 The Thingsboard Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,10 +52,10 @@ public class RawAccessJwtToken implements JwtToken, Serializable {
         try {
             return Jwts.parser().setSigningKey(signingKey).parseClaimsJws(this.token);
         } catch (UnsupportedJwtException | MalformedJwtException | IllegalArgumentException | SignatureException ex) {
-            log.error("Invalid JWT Token", ex);
+            log.debug("Invalid JWT Token", ex);
             throw new BadCredentialsException("Invalid JWT token: ", ex);
         } catch (ExpiredJwtException expiredEx) {
-            log.info("JWT Token is expired", expiredEx);
+            log.debug("JWT Token is expired", expiredEx);
             throw new JwtExpiredTokenException(this, "JWT Token expired", expiredEx);
         }
     }
